@@ -12,6 +12,7 @@
   },
   "author": "Rudy Klucik <rudy.klucik@noaa.gov>",
   "license": "MIT",
+  "keywords": ["vue", "vuex", "form", "validation"]
   "bugs": {
     "url": "https://github.com/CI-CMG/form-vuex/issues"
   },

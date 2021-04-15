@@ -1,6 +1,6 @@
 {
   "name": "@ci-cmg/form-vuex",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A lightweight plugin for form validation using Vuex",
   "main": "main.js",
   "scripts": {
@@ -12,7 +12,12 @@
   },
   "author": "Rudy Klucik <rudy.klucik@noaa.gov>",
   "license": "MIT",
-  "keywords": ["vue", "vuex", "form", "validation"]
+  "keywords": [
+    "vue",
+    "vuex",
+    "form",
+    "validation"
+  ],
   "bugs": {
     "url": "https://github.com/CI-CMG/form-vuex/issues"
   },

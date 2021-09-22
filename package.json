@@ -1,10 +1,10 @@
 {
   "name": "@ci-cmg/form-vuex",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A lightweight plugin for form validation using Vuex",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,14 @@
   "bugs": {
     "url": "https://github.com/CI-CMG/form-vuex/issues"
   },
-  "homepage": "https://github.com/CI-CMG/form-vuex#readme"
+  "homepage": "https://github.com/CI-CMG/form-vuex#readme",
+  "dependencies": {
+    "dot-object": "^2.1.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.4",
+    "@babel/preset-env": "^7.15.4",
+    "babel-jest": "^27.1.0",
+    "jest": "^27.1.0"
+  }
 }

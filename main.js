@@ -1,7 +1,12 @@
 import dot from 'dot-object';
 
 const getType = (key, model) => {
-  const obj = model[key];
+  let obj;
+  if (typeof key === 'string') {
+    obj = dot.pick(key, model);
+  } else {
+    obj = model[key];
+  }
   if (Array.isArray(obj)) {
     return 'array';
   }
@@ -130,14 +135,19 @@ export const addToArray = (state, model, path, item) => {
   // console.log(path);
   // console.log(item);
   let array = dot.pick(path, state.form);
-  if (!array) {
-    array = dot.set(path, [], state.form);
+  if (array) {
+    // array = dot.set(path, [], state.form);
+    array = [...array];
+  } else {
+    array = [];
   }
   const subModel = dot.pick(path.replace(/\[\d+]/g, '[0]'), model);
   const expanded = [];
   buildObject(expanded, null, subModel, [item]);
   touchAll({ a: expanded[0] });
   array.push(expanded[0]);
+
+  dot.set(path, array, state.form);
 };
 
 export const deleteFromArray = (state, path) => {
@@ -256,7 +266,8 @@ const checkForm = (form, initialForm, model, validator, checkLength) => {
       case 'array':
       case 'object': {
         for (let i = 0; i < form.length; i += 1) {
-          if (!initialForm[i]) {
+          // if (!initialForm[i]) {
+          if (!initialForm || !initialForm[i]) {
             return checkLength;
           }
           if (checkForm(form[i], initialForm[i], model[0], validator, checkLength)) {
